@@ -62,7 +62,7 @@ async def get_users(
     end = skip + limit - 1
     
     result = supabase.table("users").select("*").order("id").range(start, end).execute()
-    count_result = supabase.table("users").select("*", count="exact").execute()
+    count_result = supabase.table("users").select("*", count="exact").limit(0).execute()
     total_count = count_result.count if hasattr(count_result, 'count') else len(count_result.data)
     return paginate_query(result, skip, limit, total_count)
 
@@ -96,7 +96,7 @@ async def get_audience_insights(
     end = skip + limit - 1
     
     result = supabase.table("audience_insights").select("*").order("id").range(start, end).execute()
-    count_result = supabase.table("audience_insights").select("*", count="exact").execute()
+    count_result = supabase.table("audience_insights").select("*", count="exact").limit(0).execute()
     total_count = count_result.count if hasattr(count_result, 'count') else len(count_result.data)
     return paginate_query(result, skip, limit, total_count)
 
@@ -130,7 +130,7 @@ async def get_sponsorships(
     end = skip + limit - 1
     
     result = supabase.table("sponsorships").select("*").order("id").range(start, end).execute()
-    count_result = supabase.table("sponsorships").select("*", count="exact").execute()
+    count_result = supabase.table("sponsorships").select("*", count="exact").limit(0).execute()
     total_count = count_result.count if hasattr(count_result, 'count') else len(count_result.data)
     return paginate_query(result, skip, limit, total_count)
 
@@ -163,7 +163,7 @@ async def get_posts(
     end = skip + limit - 1
     
     result = supabase.table("user_posts").select("*").order("id").range(start, end).execute()
-    count_result = supabase.table("user_posts").select("*", count="exact").execute()
+    count_result = supabase.table("user_posts").select("*", count="exact").limit(0).execute()
     total_count = count_result.count if hasattr(count_result, 'count') else len(count_result.data)
     return paginate_query(result, skip, limit, total_count)
 
@@ -195,7 +195,7 @@ async def get_sponsorship_applications(
     end = skip + limit - 1
     
     result = supabase.table("sponsorship_applications").select("*").order("id").range(start, end).execute()
-    count_result = supabase.table("sponsorship_applications").select("*", count="exact").execute()
+    count_result = supabase.table("sponsorship_applications").select("*", count="exact").limit(0).execute()
     total_count = count_result.count if hasattr(count_result, 'count') else len(count_result.data)
     return paginate_query(result, skip, limit, total_count)
 
@@ -226,7 +226,7 @@ async def get_sponsorship_payments(
     end = skip + limit - 1
     
     result = supabase.table("sponsorship_payments").select("*").order("id").range(start, end).execute()
-    count_result = supabase.table("sponsorship_payments").select("*", count="exact").execute()
+    count_result = supabase.table("sponsorship_payments").select("*", count="exact").limit(0).execute()
     total_count = count_result.count if hasattr(count_result, 'count') else len(count_result.data)
     return paginate_query(result, skip, limit, total_count)
 
@@ -257,6 +257,6 @@ async def get_collaborations(
     end = skip + limit - 1
     
     result = supabase.table("collaborations").select("*").order("id").range(start, end).execute()
-    count_result = supabase.table("collaborations").select("*", count="exact").execute()
+    count_result = supabase.table("collaborations").select("*", count="exact").limit(0).execute()
     total_count = count_result.count if hasattr(count_result, 'count') else len(count_result.data)
     return paginate_query(result, skip, limit, total_count)
