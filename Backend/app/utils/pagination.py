@@ -17,7 +17,7 @@ def get_pagination_params(skip: int = DEFAULT_SKIP, limit: int = DEFAULT_LIMIT) 
     return skip, limit
 
 
-def paginate_query(query_result, skip: int, limit: int) -> Dict[str, Any]:
+def paginate_query(query_result, skip: int, limit: int, total_count: int = 0) -> Dict[str, Any]:
     """Format paginated response with metadata."""
     data = query_result.data if hasattr(query_result, 'data') else query_result
     
@@ -28,5 +28,6 @@ def paginate_query(query_result, skip: int, limit: int) -> Dict[str, Any]:
         "data": data,
         "skip": skip,
         "limit": limit,
-        "count": len(data)
+        "count": len(data),
+        "total_count": total_count
     }
